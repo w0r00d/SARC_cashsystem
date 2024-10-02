@@ -27,7 +27,9 @@ return new class extends Migration
             $table->date('recipient_date');
             $table->enum('sector', ['protection', 'shelter', 'nutrition', 'health', 'wash', 'food', 'livlihood', 'education']);
             $table->enum('modality', ['cash', 'voucher', 'evoucher']);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
+
         });
     }
 
