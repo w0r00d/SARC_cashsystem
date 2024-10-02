@@ -25,6 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('transfer_count');
             $table->date('transfer_date');
             $table->date('recipient_date');
+            $table->enum('governate', ['Damascus', 'Aleppo', 'Homs', 'Hama', 'Latakia', 'Tartous', 'As-Sweida', 'Ar-Raqqa', 'Daraa', 'Idleb', 'Quneitra', 'Rurla Damascus', 'Der-ezzor']);
             $table->enum('sector', ['protection', 'shelter', 'nutrition', 'health', 'wash', 'food', 'livlihood', 'education']);
             $table->enum('modality', ['cash', 'voucher', 'evoucher']);
             $table->timestamp('created_at')->useCurrent();

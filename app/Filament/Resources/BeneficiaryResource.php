@@ -52,6 +52,22 @@ class BeneficiaryResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('recipient_date')
                     ->required(),
+                Select::make('governate')
+                    ->options([
+                        'Damascus' => 'Damascus',
+                        'Aleppo' => 'Aleppo',
+                        'Homs' => 'Homs',
+                        'Hama' => 'Hama',
+                        'Latakia' => 'Latakia',
+                        'Tartous' => 'Tartous',
+                        'As-Sweida' => 'As-Sweida',
+                        'Ar-Raqqa' => 'Ar-Raqqa',
+                        'Daraa' => 'Daraa',
+                        'Idleb' => 'Idleb',
+                        'Quneitra' => 'Quneitra',
+                        'Rurla Damascus' => 'Rural Damascus',
+                        'Der-ez-zor' => 'Der-ez-zor',
+                    ]),
                 Select::make('sector')
                     ->options([
                         'protection' => 'Protection',
