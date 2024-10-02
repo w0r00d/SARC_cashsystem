@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Imports\BeneficiaryImporter;
 use App\Filament\Resources\BeneficiaryResource\Pages;
 use App\Models\Beneficiary;
 use Filament\Forms;
@@ -10,6 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Table;
 
 class BeneficiaryResource extends Resource
@@ -78,8 +80,20 @@ class BeneficiaryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->headerActions([
+                ImportAction::make()
+                    ->importer(BeneficiaryImporter::class),
+
+            ])
             ->columns([
                 //
+                Tables\Columns\TextColumn::make('national_id'),
+                Tables\Columns\TextColumn::make('fullname'),
+                Tables\Columns\TextColumn::make('recipient_name'),
+                Tables\Columns\TextColumn::make('project_name'),
+                Tables\Columns\TextColumn::make('partner'),
+                Tables\Columns\TextColumn::make('sector'),
+                Tables\Columns\TextColumn::make('modality'),
             ])
             ->filters([
                 //
